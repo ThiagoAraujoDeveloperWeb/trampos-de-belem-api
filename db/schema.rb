@@ -16,9 +16,14 @@ ActiveRecord::Schema.define(version: 2020_03_31_204750) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "password_digest"
-    t.integer "age"
+    t.string "fullName"
+    t.string "contactPhone"
+    t.string "email"
+    t.string "nameCompany"
+    t.string "companyDescription"
+    t.string "companyWebsite"
+    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
