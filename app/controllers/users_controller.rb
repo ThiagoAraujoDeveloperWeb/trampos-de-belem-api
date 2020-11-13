@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       render json: { user: @user, token: token, role: 'user' }
     else
-      render json: { error: "E-mail ou senha invalidos" }
+      render json: { status: 403, error: "E-mail ou senha invalidos" }
     end
   end
 
