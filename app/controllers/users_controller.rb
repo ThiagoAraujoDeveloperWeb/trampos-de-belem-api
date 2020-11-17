@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authorized, only: [:auto_login]
+  before_action :authorized, only: [:auto_login], except: [:get_advertiser]
 
   # REGISTER
   def create
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.valid?
       token = encode_token({user_id: @user.id})
       # render json: {user: @user, token: token}
-      render json: { status: 'cadastrado', message: 'Anunciante cadastrado' }
+      render json: { status: 'cadastrado', message: 'Anunciante cadastrado com sucesso, faça seu login agora.' }
     else
       render json: { error: "Verifique se os dados estão corretos." }
     end
@@ -36,13 +36,15 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def get_advertiser
+    @user = User.find(params[:id])
+
+    render json: { user: @user }
+  end
+
   private
 
   def user_params
-    params.permit(:fullName, :contactPhone,
-                  :email, :nameCompany,
-                  :companyDescription,
-                  :companyWebsite, :city,
-                  :password)
+    params.permit(:fullName, :email, :password)
   end
 end

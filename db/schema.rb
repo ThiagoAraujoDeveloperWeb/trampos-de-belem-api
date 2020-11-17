@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_141607) do
+ActiveRecord::Schema.define(version: 2020_11_16_195448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,7 @@ ActiveRecord::Schema.define(version: 2020_11_13_141607) do
   create_table "users", force: :cascade do |t|
     t.string "password_digest"
     t.string "fullName"
-    t.string "contactPhone"
     t.string "email"
-    t.string "nameCompany"
-    t.string "companyDescription"
-    t.string "companyWebsite"
-    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,12 +27,17 @@ ActiveRecord::Schema.define(version: 2020_11_13_141607) do
     t.string "title"
     t.string "type_vacancy"
     t.text "description_vacancy"
+    t.string "name_company"
+    t.string "company_website"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.date "vacancy_expired"
     t.boolean "vacancy_filled", default: false
     t.boolean "expired", default: false
+    t.string "name_user_publish"
+    t.string "contact_information"
     t.index ["user_id"], name: "index_vacancies_on_user_id"
   end
 

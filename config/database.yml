@@ -8,11 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: mentor_development
+  database: tramposdebelem_development
 
 test:
   <<: *default
-  database: mentor_test
+  database: tramposdebelem_test
 
 production:
   # username: <%= ENV['DB_USER'] %>
