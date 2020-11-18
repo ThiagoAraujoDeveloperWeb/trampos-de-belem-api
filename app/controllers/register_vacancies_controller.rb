@@ -68,6 +68,6 @@ class RegisterVacanciesController < ApplicationController
                   :name_user_publish, :vacancy_expired,
                   :vacancy_filled, :user_id, :expired,
                   :contact_information, :name_company,
-                  :company_website, :location, )
+                  :company_website, :location, :about_company, :tags)
   end
 end
