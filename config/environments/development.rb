@@ -13,7 +13,7 @@ Rails.application.configure do
     :password => '1ipconfig@23thiago',
     :address => 'smtp.sendgrid.net',
     :port => 587,
-    :authentication => :login,
+    :authentication => :plain,
     :enable_starttls_auto => true
   }
 
