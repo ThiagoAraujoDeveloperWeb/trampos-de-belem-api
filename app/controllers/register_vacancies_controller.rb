@@ -54,7 +54,6 @@ class RegisterVacanciesController < ApplicationController
   end
 
   def vacancy_expired?
-    binding.pry
     vacancies = Vacancy.where(expired: false, vacancy_filled: false)
 
     vacancies.each do |vacancy|
