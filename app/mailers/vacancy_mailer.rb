@@ -8,5 +8,9 @@ class VacancyMailer < ApplicationMailer
   def new_vacancy_posted
     mail to: "thiagoaraujo.dev@gmail.com",
     subject: "Temos uma nova Vaga publicada"
+
+    # mail(to: 'thiagosilva.java@gmail.com',
+    #      subject: 'Temos uma nova Vaga publicada',
+    #      body: 'email body')
   end
 end

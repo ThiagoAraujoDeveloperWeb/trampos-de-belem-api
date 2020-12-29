@@ -5,9 +5,41 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
 
-  config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
+  # config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :port           => '587',
+  #   :authentication => :plain,
+  #   :user_name      => ENV['SENDGRID_USERNAME'],
+  #   :api_key       => ENV['SENDGRID_API_KEY'],
+  #   :password      => ENV['SENDGRID_PASSWORD'],
+  #   :address        => 'smtp.sendgrid.net',
+  #   # :api_key       => ENV['API_KEY'],
+  #   :domain         => 'localhost:3000',
+  #   :enable_starttls_auto => true
+  # }
+
+  # config.action_mailer.delivery_method = :sendgrid_actionmailer
+  # config.action_mailer.sendgrid_actionmailer_settings = {
+  #   api_key: ENV['SENDGRID_API_KEY'],
+  #   raise_delivery_errors: true
+  # }
+
   config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000' #replace with your own url
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => 'thiagosilva.java@gmail.com',
+    :password             => 'utnybhpqmabtqden',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
 
   config.cache_classes = false
 

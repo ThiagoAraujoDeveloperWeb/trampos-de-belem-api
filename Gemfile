@@ -18,6 +18,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'dotenv-rails'
 
+gem 'sendgrid-ruby'
+
+gem 'sendgrid-actionmailer', '~> 3.1', '>= 3.1.1'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

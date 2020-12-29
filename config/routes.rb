@@ -27,8 +27,6 @@ Rails.application.routes.draw do
 
     get '/get_advertiser/:id', to: 'users#get_advertiser'
 
-    # get '/vacancies', to: 'books#vacancies'
-
     get '/index', to: 'users#index'
 
     post '/login', to: 'users#login'
