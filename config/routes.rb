@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
     get '/vacancies_total', to: 'register_vacancies#vacancies_total'
 
+    get '/count_vacancies', to: 'dashboard#count_vacancies'
+
     get '/vacancies', to: 'register_vacancies#vacancies'
 
     get '/vacancies_for_candates', to: 'register_vacancies#vacancies_for_candates'
