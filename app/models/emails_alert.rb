@@ -1,0 +1,2 @@
+class EmailsAlert < ApplicationRecord
+end

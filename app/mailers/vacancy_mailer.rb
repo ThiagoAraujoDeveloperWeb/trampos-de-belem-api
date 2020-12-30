@@ -6,8 +6,10 @@ class VacancyMailer < ApplicationMailer
   #   en.vacancy_mailer.new_vacancy_posted.subject
   #
   def new_vacancy_posted
-    mail to: "thiagoaraujo.dev@gmail.com",
-    subject: "Temos uma nova Vaga publicada"
+    EmailsAlert.all.each do |candidate|
+      mail to: candidate.email,
+      subject: "SmallDev-Jobs tem uma nova vaga :)"
+    end
 
     # mail(to: 'thiagosilva.java@gmail.com',
     #      subject: 'Temos uma nova Vaga publicada',

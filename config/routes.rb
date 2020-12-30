@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # ROTAS PARA EMPRESAS
+  # ROTAS PARA ANUNCIANTES
 
     # post '/cadastrar-anunciante', to: 'users#create'
     resource :users, only: [:create]
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     put '/update_vacancy/:id', to: 'register_vacancies#update'
 
   # ROTAS ABERTAS PARA CANDIDATADOS
+    resource :emails_alerts, only: [:create]
+
     get '/auto_login', to: 'users#auto_login'
 
     get '/get_advertiser/:id', to: 'users#get_advertiser'

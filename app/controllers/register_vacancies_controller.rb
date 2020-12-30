@@ -21,7 +21,7 @@ class RegisterVacanciesController < ApplicationController
     if @vacancy.valid?
       render json: { vacancy: @vacancy, status: 'success', message: 'Vaga cadastrada com sucesso.' }
     else
-      render json: { vacancy: @vacancy, status: 'error',  message: 'Erro ao cadastrar vagam, estamos verificando.' }
+      render json: render_errors(@product.errors.full_messages)
     end
   end
 
@@ -57,7 +57,9 @@ class RegisterVacanciesController < ApplicationController
     vacancies = Vacancy.where(expired: false, vacancy_filled: false)
 
     vacancies.each do |vacancy|
-      vacancy.update(expired: true, vacancy_filled: true) if vacancy.vacancy_expired.strftime("%F") == DateTime.now.strftime("%F")
+      unless vacancy.vacancy_expired.nil?
+        vacancy.update(expired: true, vacancy_filled: true) if vacancy.vacancy_expired.strftime("%F") == DateTime.now.strftime("%F")
+      end
     end
   end
 
