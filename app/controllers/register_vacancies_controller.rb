@@ -2,7 +2,7 @@ class RegisterVacanciesController < ApplicationController
   before_action :authorized, except: [:vacancies_total, :vacancies_for_candates, :find_vacancy_public]
 
   def vacancies
-    @vacancies = logged_in_user.vacancies
+    @vacancies = logged_in_user.vacancies.where(expired: false, vacancy_filled: false)
 
     render json: { vacancies: @vacancies }
   end
